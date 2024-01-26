@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Do Your Best</title>
+  </head>
+  <body>
+    <form id="generateLinkForm">
+      <label for="friendName">Enter future IITn name?</label>
+      <input type="text" id="friendName" placeholder="Friend's Name" />
+      <button type="submit">Generate Page</button>
+    </form>
+    <div id="generatedLinkContainer" style="display: none">
+      <span id="generatedLink"></span>
+      <button id="copyLink">Copy</button>
+    </div>
+
+    <script>
+      document
+        .getElementById("generateLinkForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form submission
+
+          // Get the friend's name from the input field
+          var friendName = document.getElementById("friendName").value;
+
+          // Generate the personalized link
+          var personalizedLink = "/atb?name=" + encodeURIComponent(friendName);
+
+          // Display the generated link
+          document.getElementById("generatedLink").textContent =
+            personalizedLink;
+          document.getElementById("generatedLinkContainer").style.display =
+            "block";
+
+          // Reset form
+          document.getElementById("generateLinkForm").reset();
+        });
+
+      document
+        .getElementById("copyLink")
+        .addEventListener("click", function () {
+          var linkText = document.getElementById("generatedLink").textContent;
+          navigator.clipboard.writeText(linkText).then(function () {
+            alert("Link copied to clipboard!");
+          });
+        });
+    </script>
+  </body>
+</html>
