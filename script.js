@@ -1,7 +1,3 @@
-window.onload = function () {
-  window.scrollTo(0, document.body.scrollHeight);
-};
-
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
   name = name.replace(/[\[\]]/g, "\\$&");
@@ -33,3 +29,6 @@ function activateForeground() {
   document.getElementById("foreground2Layer").style.display = "flex";
   startGifAnimation();
 }
+window.onload = function () {
+  window.scrollTo(0, document.body.scrollHeight);
+};
