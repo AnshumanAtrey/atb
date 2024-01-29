@@ -1,3 +1,7 @@
+window.onload = function () {
+  window.scrollTo(0, document.body.scrollHeight);
+};
+
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
   name = name.replace(/[\[\]]/g, "\\$&");
