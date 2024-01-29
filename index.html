@@ -28,7 +28,9 @@
       <p
         id="copyAlert"
         class="px-3 py-1 text-neutral-400 bg-neutral-800 text-xs opacity-0"
-      ></p>
+      >
+        ---
+      </p>
       <form id="generateLinkForm" class="flex flex-col gap-1">
         <label for="friendName">Enter future IITn name!</label>
         <input
@@ -51,7 +53,7 @@
           <a
             href=""
             target="_blank"
-            id="instagram"
+            id="telegram"
             class="bg-neutral-800 hover:bg-neutral-900 w-10 h-10 hover:fill-[#229ED9] fill-white rounded flex items-center justify-center cursor-pointer"
           >
             <svg
@@ -104,7 +106,13 @@
           </div>
         </div>
         <p class="text-center text-xs text-neutral-400">
-          Share Page With Your Friend
+          Share with <span id="previewName"></span> now ✨
+        </p>
+        <p class="text-center text-xs text-neutral-400">
+          or <br />
+          <a class="p-3 underline" id="preview" href="" target="_blank"
+            >View Page</a
+          >
         </p>
       </div>
     </main>

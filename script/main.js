@@ -3,7 +3,9 @@ window.onload = function () {
   window.scrollTo(0, document.body.scrollHeight);
 };
 
+let friendName;
 const copyAlert = document.getElementById("copyAlert");
+const previewName = document.getElementById("previewName");
 var personalizedLink = "";
 
 // Show and then hide the alert
@@ -18,29 +20,30 @@ const showHide = () => {
 // Generate a personalized link based on the friend's name
 const shareLinkfn = () => {
   personalizedLink =
-    "https://dofknbest.netlify.app/atb?name=" +
-    encodeURIComponent(document.getElementById("friendName").value);
-
+    "https://dofknbest.netlify.app/atb?name=" + encodeURIComponent(friendName);
   document.getElementById("shareButtons").style.display = "flex";
 
   navigator.clipboard.writeText(personalizedLink);
   copyAlert.textContent = "Link Copied";
+  previewName.textContent = friendName.split(" ")[0];
   showHide();
 
   document
-    .getElementById("instagram")
+    .getElementById("telegram")
     .setAttribute(
       "href",
       "https://telegram.me/share/url?url=" +
         encodeURIComponent(personalizedLink)
     );
-
   document
     .getElementById("whatsapp")
     .setAttribute(
       "href",
       "whatsapp://send?text=" + encodeURIComponent(personalizedLink)
     );
+
+  document.getElementById("preview").setAttribute("href", personalizedLink);
+
   document.getElementById("generateLinkForm").reset();
 };
 
@@ -49,7 +52,8 @@ document
   .getElementById("generateLinkForm")
   .addEventListener("submit", function (event) {
     event.preventDefault();
-    if (document.getElementById("friendName").value.trim() === "") {
+    friendName = document.getElementById("friendName").value.trim();
+    if (friendName === "") {
       copyAlert.textContent = "Enter Name";
       showHide();
     } else {
