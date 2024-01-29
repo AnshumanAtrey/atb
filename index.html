@@ -8,7 +8,6 @@
       name="description"
       content="Wish your friends the best for their JEE exam with this personalized message generator | Made by Anshuman Atrey."
     />
-
     <title>Best Way to Wish for JEE Exam</title>
   </head>
   <style>
@@ -29,9 +28,7 @@
       <p
         id="copyAlert"
         class="px-3 py-1 text-neutral-400 bg-neutral-800 text-xs opacity-0"
-      >
-        Link Copied
-      </p>
+      ></p>
       <form id="generateLinkForm" class="flex flex-col gap-1">
         <label for="friendName">Enter future IITn name!</label>
         <input
@@ -125,52 +122,6 @@
         >@atrey.dev</a
       >
     </footer>
-    <script>
-      window.onload = function () {
-        window.scrollTo(0, document.body.scrollHeight);
-      };
-      const copyAlert = document.getElementById("copyAlert");
-      const showHide = () => {
-        copyAlert.classList.add("fade-in");
-        setTimeout(() => {
-          copyAlert.classList.remove("fade-in");
-          copyAlert.classList.add("fade-in-out");
-        }, 1000);
-      };
-
-      var personalizedLink = "";
-
-      document
-        .getElementById("generateLinkForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-          var friendName = document.getElementById("friendName").value;
-          personalizedLink =
-            "https://dofknbest.netlify.app/atb?name=" +
-            encodeURIComponent(friendName);
-          document.getElementById("shareButtons").style.display = "flex";
-          navigator.clipboard.writeText(personalizedLink);
-          showHide();
-          document
-            .getElementById("instagram")
-            .setAttribute(
-              "href",
-              "https://telegram.me/share/url?url=" +
-                encodeURIComponent(personalizedLink)
-            );
-          document
-            .getElementById("whatsapp")
-            .setAttribute(
-              "href",
-              "whatsapp://send?text=" + encodeURIComponent(personalizedLink)
-            );
-          document.getElementById("generateLinkForm").reset();
-        });
-
-      document.getElementById("copy").addEventListener("click", function () {
-        navigator.clipboard.writeText(personalizedLink);
-        showHide();
-      });
-    </script>
+    <script src="main.js"></script>
   </body>
 </html>

@@ -548,6 +548,10 @@ video {
   position: fixed;
 }
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
